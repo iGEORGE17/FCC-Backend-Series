@@ -7,6 +7,7 @@
  var myApp = require('./myApp');
  var express = require('express');
  var app = express();
+require('dotenv').config();
  
  if (!process.env.DISABLE_XORIGIN) {
    app.use(function(req, res, next) {
@@ -29,9 +30,15 @@
  })
 
  app.get('/json', (req, res) => {
+  if(process.env.MESSAGE_STYLE === "uppercase") {
+      res.json({
+        "message": "HELLO JSON"
+    })    
+  } else {
     res.json({
         "message": "Hello json"
     })
+  }
   })
  
  var port = process.env.PORT || 3000;
