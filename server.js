@@ -49,12 +49,16 @@ require('dotenv').config();
   }
   })
 
-  app.get('/now', function(req, res, next) {
+  const middleware = (req, res, next) => {
     req.time = new Date().toString();
     next();
-  }, function(req, res) {
-    res.json({ time: req.time })
-  })
+  };
+  
+  app.get("/now", middleware, (req, res) => {
+    res.send({
+      time: req.time
+    });
+  });
  
  var port = process.env.PORT || 3000;
  bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
