@@ -48,6 +48,19 @@ require('dotenv').config();
     })
   }
   })
+
+  function getCurrentTimeString() {
+    return new Date().toString();
+  }
+
+  app.get('/now', 
+  function(req, res, next) {
+    req.time = getCurrentTimeString();
+    next();
+  }, 
+  function(req, res) {
+    res.json({ time: req.time })
+  })
  
  var port = process.env.PORT || 3000;
  bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
