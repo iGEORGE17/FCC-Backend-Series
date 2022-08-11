@@ -54,7 +54,7 @@ require('dotenv').config();
   };
   
   app.get("/now", (req, res, next) => {
-    req.time = getCurrentTimeString();
+    req.time = new Date().toString();
     next();
   }, (req, res) => {
       res.json({
