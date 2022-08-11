@@ -60,7 +60,7 @@ require('dotenv').config();
   }, setTimeout((req, res) => {
     //your code to be executed after 1 second
       res.json({
-        'time': req.time
+        "time": req.time
       })
   }, delayInMilliseconds));
  
