@@ -51,18 +51,16 @@ require('dotenv').config();
 
   function getCurrentTimeString() {
     return new Date().toString();
-  }
-  var delayInMilliseconds = 1000;
+  };
   
   app.get("/now", (req, res, next) => {
     req.time = getCurrentTimeString();
     next();
-  }, setTimeout((req, res) => {
-    //your code to be executed after 1 second
+  }, (req, res) => {
       res.json({
         "time": req.time
       })
-  }, delayInMilliseconds));
+  });
  
  var port = process.env.PORT || 3000;
  bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
