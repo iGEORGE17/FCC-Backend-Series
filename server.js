@@ -49,8 +49,12 @@ require('dotenv').config();
   }
   })
 
+  function getCurrentTimeString() {
+    return new Date().toString();
+  }
+
   const middleware = (req, res, next) => {
-    req.time = new Date().toString();
+    req.time = getCurrentTimeString();
     next();
   };
   
