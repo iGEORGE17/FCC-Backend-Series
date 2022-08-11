@@ -22,10 +22,10 @@ require('dotenv').config();
    });
  }
 
-//  app.use((req, res, next) => {
-//   console.log(req.method + " " + req.path + " - " + req.ip)
-//   next();
-//  })
+ app.use((req, res, next) => {
+  console.log(req.method + " " + req.path + " - " + req.ip)
+  next();
+ })
 
 
  app.use(express.static(__dirname + "/public"))
@@ -49,18 +49,7 @@ require('dotenv').config();
   }
   })
 
-  app.get(
-    "/now",
-    (req, res, next) => {
-      req.time = new Date().toString();
-      next();
-    },
-    (req, res) => {
-      res.send({
-        time: req.time
-      });
-    }
-  );
+
  
  var port = process.env.PORT || 3000;
  bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
