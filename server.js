@@ -54,10 +54,10 @@ require('dotenv').config();
   };
   
   app.get("/now", (req, res, next) => {
-    req.time = getCurrentTimeString();
+    req.time = getCurrentTimeString()
     next();
   }, (req, res) => {
-      res.json(req.time)
+      res.json({ time: req.time })
   });
  
  var port = process.env.PORT || 3000;
