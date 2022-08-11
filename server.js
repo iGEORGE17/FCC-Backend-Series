@@ -59,9 +59,7 @@ require('dotenv').config();
   };
   
   app.get("/now", middleware, (req, res) => {
-    res.send({
-      time: req.time
-    });
+    res.json({ time: req.time });
   });
  
  var port = process.env.PORT || 3000;
