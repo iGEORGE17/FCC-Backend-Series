@@ -17,7 +17,8 @@ app.get(
 
 
 app.get("/:word/echo", (req, res) => {
-    res.json({ echo: req.params.word })
+    const { word } = req.params
+    res.json({ echo: word })
 })
 
 
