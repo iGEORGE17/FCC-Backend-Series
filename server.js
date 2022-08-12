@@ -29,10 +29,9 @@ var bodyParser = require('body-parser')
   next();
  })
 
- app.use((req, res, next) => {
-  bodyParser.urlencoded({ extended: false })
-  next();
- });
+ app.use(bodyParser.urlencoded({ extended: false }));
+ app.use(bodyParser.json())
+
 
  app.use(express.static(__dirname + "/public"))
  app.use("/public", express.static(__dirname + "/public"))
