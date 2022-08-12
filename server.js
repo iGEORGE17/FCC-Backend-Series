@@ -8,6 +8,8 @@
  var express = require('express');
  var app = express();
 require('dotenv').config();
+var bodyParser = require('body-parser')
+
  
  if (!process.env.DISABLE_XORIGIN) {
    app.use(function(req, res, next) {
@@ -27,6 +29,10 @@ require('dotenv').config();
   next();
  })
 
+ app.use((req, res, next) => {
+  bodyParser.urlencoded({ extended: false })
+  next();
+ });
 
  app.use(express.static(__dirname + "/public"))
  app.use("/public", express.static(__dirname + "/public"))
