@@ -31,7 +31,7 @@ var arrayOfPeople = [
 
 const createManyPeople = (arrayOfPeople, done) => {
   Person.create(arrayOfPeople, (err, people) => {
-    if (err) return console.error(err);
+    if (err) return console.log(err);
     done(null, people); 
   });
 };
